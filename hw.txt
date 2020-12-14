@@ -1,0 +1,1 @@
+https://github.com/OPSRv/E-SHOPPER-Django.git
