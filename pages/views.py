@@ -4,6 +4,7 @@ from product.models import Product
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -94,4 +95,24 @@ def dashboard(request):
 
 
 def cart(request):
-    return render(request, 'pages/cart.html')
+
+    if request.method == 'POST':
+        print("request.POST AFTER  ", request.POST)
+        product_tittle =   request.POST['tittle']
+        product_price =   request.POST['price']
+        # product_sale =   request.POST['sale']
+        send_mail(
+            'New Order',
+            'There has been an inquiry for ' + product_tittle +
+            '. ', "Price " + product_price +
+            'mashman007@gmail.com',
+            ["trofimchuk.an@gmail.com", 'trofimchuk.an@gmail.com'],
+            fail_silently=False
+        )
+
+        messages.success(
+            request, 'Your request has been submitted, a realtor will get back to you soon')
+        
+        return render(request, 'pages/dashboard.html')
+    else:
+        return render(request, 'pages/cart.html')
