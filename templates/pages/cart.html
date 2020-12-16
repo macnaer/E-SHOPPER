@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
     <section id="cart_items">
-		{% comment %} <div class="container">
+		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
 				  <li><a href="#">Home</a></li>
@@ -34,9 +34,7 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<input class="cart_quantity_input" type="number" name="quantity" value="1" autocomplete="off" size="2">
 								</div>
 							</td>
 							<td class="cart_total">
@@ -48,21 +46,15 @@
 						</tr>
 					</tbody>
 				</table>
-            </div>
+			</div>
+			<div class="btn-order">
+				<button class="btn btn-success">Order</button>
+			</div>
             {% else %}
             <div>
                 <h2>Your cart is empty.</h2>
-            </div>
-            {% endif  %}
-		</div> {% endcomment %}
-{% comment %} 
-        {% for item in cart %}
-            {% with product=item.product %}
-
-                    <td>{{ item.tittle }}</td>
-
-            {% endwith %}
-        {% endfor %} {% endcomment %}
+			</div>
+			{% endif %}
 
 	</section> <!--/#cart_items-->
 {% endblock %}
