@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'product',
     'django_seed',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MESSAGE_TAGS = {
@@ -140,5 +141,5 @@ MESSAGE_TAGS = {
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "mashman007@gmail.com"
-EMAIL_HOST_PASSWORD = 'MYPASS'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
